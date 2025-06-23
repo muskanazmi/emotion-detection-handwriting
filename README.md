@@ -114,10 +114,14 @@ To reproduce results or modify training pipelines, refer to:
 python train.py
 ```
 
-📄 BibTeX Citation:
+## 📚 Citation
+
+If you use the EMOTHAW dataset in your work, please cite the following paper:
+
+```bibtex
 @article{likforman2022emothaw,
   title={EMOTHAW: A novel database for emotional state recognition from handwriting},
-  author={Likforman-Sulem, Laurence and Esposito, Anna and Faundez-Zanuy, Marcos and Clémençon, Stephan and Cordasco, Gennaro},
+  author={Likforman-Sulem, Laurence and Esposito, Anna and Faundez-Zanuy, Marcos and Clémen{\c{c}}on, Stephan and Cordasco, Gennaro},
   journal={arXiv preprint arXiv:2202.12245},
   year={2022}
 }
