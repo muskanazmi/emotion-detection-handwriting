@@ -70,3 +70,29 @@ def analyze_svc_file(df, svc_file, save_path=None):
     plot_velocity_acceleration_histograms(df, svc_file, save_path)
     plot_stroke_length_boxplot(df, svc_file, save_path)
     print_summary_statistics(df)
+
+def plot_dass_score_histograms(user_scores):
+    depression_all = [score for user in user_scores for score in user_scores[user]['depression_scores']]
+    anxiety_all = [score for user in user_scores for score in user_scores[user]['anxiety_scores']]
+    stress_all = [score for user in user_scores for score in user_scores[user]['stress_scores']]
+
+    fig, axs = plt.subplots(1, 3, figsize=(20, 5))
+    
+    axs[0].hist(depression_all, bins=20, color='lightblue', edgecolor='black')
+    axs[0].set_title('Depression Scores')
+    axs[0].set_xlabel('Score')
+    axs[0].set_ylabel('Count')
+
+    axs[1].hist(anxiety_all, bins=20, color='lightgreen', edgecolor='black')
+    axs[1].set_title('Anxiety Scores')
+    axs[1].set_xlabel('Score')
+    axs[1].set_ylabel('Count')
+
+    axs[2].hist(stress_all, bins=20, color='salmon', edgecolor='black')
+    axs[2].set_title('Stress Scores')
+    axs[2].set_xlabel('Score')
+    axs[2].set_ylabel('Count')
+
+    plt.tight_layout()
+    plt.show()
+
