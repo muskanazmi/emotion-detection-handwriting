@@ -18,27 +18,30 @@ The EmoThaw dataset captures a wide range of emotion-related handwriting behavio
 🧪 Tasks Performed by Subjects
 Each subject performed the following structured tasks:
 
-Task Description	Writing Style	Purpose
-🏠 House Drawing	Freeform Drawing	Spatial understanding, attention
-🔷 Pentagon Copying	Geometric Copy	Visuospatial coordination, symmetry accuracy
-🕒 Clock Drawing	Symbolic Drawing	Cognitive and motor planning
-🔴 Circle Drawing	Repetitive Shapes	Smooth motor control and regularity check
-✋ Handprint Word Copying	Block Letters	Focus, grip pressure, hand-eye coordination
-✍️ Cursive Sentence Copying	Cursive Writing	Fluency, writing rhythm, and stylistic traits
+| Task Description             | Writing Style       | Purpose                                              |
+|-----------------------------|---------------------|-------------------------------------------------------|
+| 🏠 House Drawing             | Freeform Drawing    | Spatial understanding, attention                     |
+| 🔷 Pentagon Copying          | Geometric Copy      | Visuospatial coordination, symmetry accuracy         |
+| 🕒 Clock Drawing             | Symbolic Drawing    | Cognitive and motor planning                         |
+| 🔴 Circle Drawing            | Repetitive Shapes   | Smooth motor control and regularity check            |
+| ✋ Handprint Word Copying    | Block Letters       | Focus, grip pressure, hand-eye coordination          |
+| ✍️ Cursive Sentence Copying | Cursive Writing     | Fluency, writing rhythm, and stylistic traits         |
 
 🧾 What’s Recorded
 Each handwriting session was recorded using a digitizing tablet, producing .svc files for every task.
 
 Every record consists of the following dynamic features:
 
-Feature	Description
-x_pos	X-coordinate of the pen on the tablet surface
-y_pos	Y-coordinate of the pen on the tablet surface
-time_stamp	Time (in milliseconds) since start of recording
-pen_status	1 = Pen on paper, 0 = Pen in air
-pressure	Pressure exerted by the pen
-azimuth_angle	Horizontal pen direction (orientation angle)
-altitude_angle	Vertical elevation of the pen from the tablet surface
+| Feature         | Description                                             |
+|----------------|----------------------------------------------------------|
+| `x_pos`        | X-coordinate of the pen on the tablet surface            |
+| `y_pos`        | Y-coordinate of the pen on the tablet surface            |
+| `time_stamp`   | Time (in milliseconds) since start of recording          |
+| `pen_status`   | 1 = Pen on paper, 0 = Pen in air                         |
+| `pressure`     | Pressure exerted by the pen                              |
+| `azimuth_angle`| Horizontal pen direction (orientation angle)             |
+| `altitude_angle`| Vertical elevation of the pen from the tablet surface   |
+
 
 These detailed time-series features allow us to extract in-air duration, on-paper writing time, number of strokes, total task time, and much more.
 
@@ -83,40 +86,27 @@ This script includes:
 
 🎯 Classification Models
 Trained Random Forest Classifiers to predict:
-
 Depression levels
-
 Anxiety levels
-
 Stress levels
 
 Evaluation Metrics:
-
 Accuracy
-
 Confusion Matrix
-
 Classification Report
 
 Additional Analysis:
-
 Computed the percentage of affected vs. non-affected individuals in each test set
 
 📉 Dimensionality Reduction
 Linear Discriminant Analysis (LDA):
-
 Reduced features into 2 components
-
 Visualized 2D projections colored by emotional classes
-
 Re-trained Random Forest using LDA-transformed features
 
 Principal Component Analysis (PCA):
-
 Standardized features and projected to 2D space
-
 Visualized PC1, PC2, and emotional intensity in 3D
-
 Performed binary classification (e.g., depression > 9) using PCA features
 
 To reproduce results or modify training pipelines, refer to:
@@ -124,3 +114,10 @@ To reproduce results or modify training pipelines, refer to:
 python train.py
 ```
 
+📄 BibTeX Citation:
+@article{likforman2022emothaw,
+  title={EMOTHAW: A novel database for emotional state recognition from handwriting},
+  author={Likforman-Sulem, Laurence and Esposito, Anna and Faundez-Zanuy, Marcos and Clémençon, Stephan and Cordasco, Gennaro},
+  journal={arXiv preprint arXiv:2202.12245},
+  year={2022}
+}
